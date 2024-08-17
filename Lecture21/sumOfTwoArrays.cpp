@@ -14,38 +14,23 @@ vector<int> findArraySum(vector<int> &a, int n, vector<int> &b, int m)
         num2 = num2 * 10 + (b[j]);
     }
     int sum = num1 + num2;
-    int size;
-    if (n >= m)
+    vector<int> ans;
+    while (sum > 0)
     {
-        if (sum / (pow(10, n)) >= 1)
-        {
-            size = n + 1;
-        }
-        else
-        {
-            size = n;
-        }
-    }
-    else
-    {
-        if (sum / (pow(10, m)) >= 1)
-        {
-            size = m + 1;
-        }
-        else
-        {
-            size = m;
-        }
-    }
-    vector<int> ans(size);
-
-    for (int i = size - 1; i >= 0; i--)
-    {
-        ans[i] = sum % 10;
+        ans.push_back(sum % 10);
         sum /= 10;
     }
 
-    return ans;
+    int s = 0;
+    int e = ans.size() - 1;
+    while (s <= e)
+    {
+        int temp = ans[s];
+        ans[s] = ans[e];
+        ans[e] = temp;
+        s++;
+        e--;
+    }
 }
 
 int main()

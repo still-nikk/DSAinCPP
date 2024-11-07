@@ -87,6 +87,8 @@ public:
 
 int Hero::staticMember = 5;
 
+
+
 int main()
 {
 

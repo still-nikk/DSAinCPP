@@ -2,7 +2,7 @@
 using namespace std;
 
 vector<int> dijkstraUsingAdjList(int nodes, vector<pair<int, int>> adjList[], int source)
-{ 
+{
     vector<int> distance(nodes, INT_MAX);
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
